@@ -1,0 +1,56 @@
+_schema-version: "3.2"
+ID: EmployeeApp
+version: 0.0.1
+modules:
+- name: employeeapp-approuter
+  type: approuter.nodejs
+  path: employeeapp-approuter
+  requires:
+  - name: EmployeeApp_html_repo_runtime
+  - name: dest_EmployeeApp
+  parameters:
+    disk-quota: 256M
+    memory: 256M
+- name: EmployeeApp_ui_deployer
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: EmployeeApp_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - EmpModule-content.zip
+      name: EmpModule
+      target-path: resources/
+- name: EmpModule
+  type: html5
+  path: EmpModule
+  build-parameters:
+    builder: custom
+    commands:
+    - npm run build
+    supported-platforms: []
+resources:
+- name: EmployeeApp_html_repo_runtime
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-runtime
+- name: EmployeeApp_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-host
+- name: dest_EmployeeApp
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: destination
+    service-plan: lite
+build-parameters:
+  before-all:
+  - builder: custom
+    commands:
+    - npm install
