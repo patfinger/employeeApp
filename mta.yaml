@@ -49,6 +49,11 @@ resources:
   parameters:
     service: destination
     service-plan: lite
+- name: autoscalerspaceb
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: autoscaler
+    service-plan: standard
 build-parameters:
   before-all:
   - builder: custom
