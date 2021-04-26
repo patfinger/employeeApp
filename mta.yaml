@@ -7,9 +7,10 @@ modules:
   path: employeeapp-approuter
   requires:
   - name: EmployeeApp_html_repo_runtime
-  - name: autoscalerspaceb
+  - name: appAutoscalerSpaceB
   - name: dest_EmployeeApp
   - name: applicationLogSpaceB
+  - name: credstoreSpaceB
   parameters:
     disk-quota: 256M
     memory: 256M
@@ -51,7 +52,7 @@ resources:
   parameters:
     service: destination
     service-plan: lite
-- name: autoscalerspaceb
+- name: appAutoscalerSpaceB
   type: org.cloudfoundry.managed-service
   parameters:
     service: autoscaler
@@ -61,6 +62,11 @@ resources:
   parameters:
     service: application-logs
     service-plan: lite
+- name: credstoreSpaceB
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: credstore
+    service-plan: standard
 build-parameters:
   before-all:
   - builder: custom
