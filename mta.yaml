@@ -9,6 +9,7 @@ modules:
   - name: EmployeeApp_html_repo_runtime
   - name: autoscalerspaceb
   - name: dest_EmployeeApp
+  - name: applicationLogSpaceB
   parameters:
     disk-quota: 256M
     memory: 256M
@@ -55,6 +56,11 @@ resources:
   parameters:
     service: autoscaler
     service-plan: standard
+- name: applicationLogSpaceB
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: application-logs
+    service-plan: lite
 build-parameters:
   before-all:
   - builder: custom
