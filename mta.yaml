@@ -8,12 +8,12 @@ modules:
   requires:
   - name: EmployeeApp_html_repo_runtime
   - name: appAutoscalerSpaceB
-  - name: dest_EmployeeApp
   - name: applicationLogSpaceB
   - name: credstoreSpaceB
+  - name: destinationSpaceB  
   parameters:
-    disk-quota: 256M
-    memory: 256M
+    disk-quota: 192M
+    memory: 128M
 - name: EmployeeApp_ui_deployer
   type: com.sap.application.content
   path: .
@@ -47,7 +47,7 @@ resources:
   parameters:
     service: html5-apps-repo
     service-plan: app-host
-- name: dest_EmployeeApp
+- name: destinationSpaceB
   type: org.cloudfoundry.managed-service
   parameters:
     service: destination
