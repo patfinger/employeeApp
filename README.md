@@ -3,26 +3,17 @@ A simple Demo Application for DEMO Cloud Enablement
 
 ## Table of contents
 ---------------------
-* [Introduction](#general-info)
-* [Requirements](#technologies)
-* [Installation](#setup)
-* [Configuration](#configuration)
+* [General Info](#general-info)
+* [Used Runtimes and Services](#technologies)
 * [Maintainers](#maintainers)
 
-## Introduction
+## General Info about the application 
 ------------
 
 
-## Requirements
+## Used Runtimes and Services
 ------------
 
-
-## Installation
-------------
-
-
-## Configuration
--------------
 
 
 ## Maintainers
